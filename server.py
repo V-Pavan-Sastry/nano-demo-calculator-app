@@ -9,17 +9,17 @@ def greeting():
 
 @app.route("/calculator/add", methods=['POST'])
 def add():
-    first= request.form.get('first')
-    second= request.form.get('second')
+    first= request.form('first')
+    second= request.form('second')
     res=first+second
-    return 'result: %',res
+    return jsonify('result: '+ str(res))
 
 @app.route("/calculator/subtract", methods=['POST'])
 def subtract():
-    first= request.form.get('first')
-    second= request.form.get('second')
+    first= request.form('first')
+    second= request.form('second')
     res=first-second
-    return 'result: %',res
+    return jsonify('result: %'+ str(res))
 
 if __name__ == '__main__':
     app.run(port=8080,host='0.0.0.0')
